@@ -36,3 +36,23 @@ for i, pc in enumerate(C):
 print('{:.7f}, {:.3f}s'.format(Res,time()-t0))
 
 
+##t0 = time()
+##from random import randrange
+##NBRE = 100000
+##win = 0
+##for i in range(NBRE):
+##    P = 0
+##    for j in range(9):
+##        P += randrange(0,4)+1
+##    C = 0
+##    for j in range(6):
+##        C += randrange(0,6)+1
+##
+##    if P>C:
+##        win +=1
+##
+##Res = win/NBRE
+##print('{:.7f}, {:.3f}s'.format(Res,time()-t0))
+
+
+

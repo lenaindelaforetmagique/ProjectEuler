@@ -1,14 +1,14 @@
-##Problem 113
+# Problem 113
 ##
-##Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.
+# Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.
 ##
-##Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.
+# Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.
 ##
-##We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.
+# We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.
 ##
-##As n increases, the proportion of bouncy numbers below n increases such that there are only 12951 numbers below one-million that are not bouncy and only 277032 non-bouncy numbers below 1010.
+# As n increases, the proportion of bouncy numbers below n increases such that there are only 12951 numbers below one-million that are not bouncy and only 277032 non-bouncy numbers below 1010.
 ##
-##How many numbers below a googol (10100) are not bouncy?
+# How many numbers below a googol (10100) are not bouncy?
 
 """
 chaque nombre croissant est formé de :
@@ -25,27 +25,31 @@ Pour les nombres décroissants :
     - tirages de k parmi 10 chiffres possibles
 
 """
+
+from time import time
+
+t0 = time()
+
+
 def fact(n):
     res = 1
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         res *= i
     return res
-        
+
+
 def C_n_k(n, k):
-    num = fact(n)
-    den = fact(k)*fact(n-k)
-    return num//den
+    return fact(n) // (fact(k) * fact(n - k))
 
 
-s1 = 0 # non-increasing-bouncy
-s2 = 0 # non-decreasing-bouncy:
-for l in range(1,101): # lg des nombres
-    for k in range(1, min(9,l)+1): # nb de coupes
-        s1 += C_n_k(l-1, k-1)*C_n_k(9, k)
+s1 = 0  # non-increasing-bouncy
+s2 = 0  # non-decreasing-bouncy:
+for l in range(1, 101):  # lg des nombres
+    for k in range(1, min(9, l) + 1):  # nb de coupes
+        s1 += C_n_k(l - 1, k - 1) * C_n_k(9, k)
 
-    for k in range(2, min(10,l)+1): # nb de coupes
-        s2 += C_n_k(l-1, k-1)*C_n_k(10, k)
+    for k in range(2, min(10, l) + 1):  # nb de coupes
+        s2 += C_n_k(l - 1, k - 1) * C_n_k(10, k)
 
-print(s1+s2)
-    
-    
+print(s1 + s2)
+print(time() - t0)

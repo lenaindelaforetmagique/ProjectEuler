@@ -60,5 +60,6 @@ while p(b)<pMax:
     b += 1
 
 print(cpt)
+print(b)
 
 

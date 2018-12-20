@@ -4,7 +4,7 @@
 """
 Nombre d'arrangements de k blocs rouges :
   LR fixe, 3 = longueur mini
-  on a en fait LR-3*k à distribuer.
+  on a en fait LR-3*k blocs unitaires rouges à distribuer.
   astuce, on ajoute k pseudo-unités
   on cherche ensuite (k-1) séparateurs parmi (LR-2*k-1) positions de séparateurs
 

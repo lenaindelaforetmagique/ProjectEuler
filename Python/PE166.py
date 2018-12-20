@@ -85,23 +85,25 @@ print(time()-t0)
 def ok(n):
     return n>=0 and n<=9
 
-for hlm in gen(10,3):
-    a = hlm[0]+hlm[1]-hlm[2]
+for h,l,m in gen(10,3):
+    a = h+l-m
     if ok(a):
-        for jk in gen(10,2):
-            e = -hlm[0] + jk[0] + jk[1]
+        for j,k in gen(10,2):
+            e = -h + j + k
             if ok(e):
-                for no in gen(10,2):
-                    d = -a + sum(no)
-                    c = -hlm[0]+jk[0]-jk[1]-hlm[1]+2*hlm[2]+no[0]
-                    f = -hlm[0]-jk[1]-hlm[1]+2*hlm[2]+sum(no)
+                for n,o in gen(10,2):
+                    d = -a + n+o
+                    c = -h+j-k-l+2*m+n
+                    f = -h-k-l+2*m+n+o
                     if ok(d) and ok(c) and ok(f):
                         for p in range(10):
-                            g = hlm[0]-jk[0]+hlm[1]-hlm[2]+p
-                            b = g + jk[1]-no[0]
-                            i = -sum(jk)-hlm[1]+hlm[2]+sum(no)+p
+                            g = h-j+l-m+p
+                            b = g + k-n
+                            i = -j -k-l+m+n+o+p
                             if ok(b) and ok(i) and ok(g):
                                 cpt += 1
+
+
 
 print(cpt)
 

@@ -19,8 +19,9 @@ p + i = 90
 p - 90 = -i
 2p - 90 = 11*k
 """
-
+from time import time
 from itertools import combinations
+t0 = time()
 
 def fact(n):
     p = 1
@@ -48,3 +49,4 @@ for c in dico:
     S += s
 
 print(S)
+print(time()-t0)

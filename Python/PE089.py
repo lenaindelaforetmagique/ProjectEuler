@@ -20,43 +20,55 @@ Find the number of characters saved by writing each of these in their minimal fo
 
 Note: You can assume that all the Roman numerals in the file contain no more than four consecutive identical units.
 """
-
-fichier=open('PE089_roman.txt','r')
-L=fichier.readlines()
+import os.path
+cwd = os.path.split(__file__)[0]
+fichier = open(os.path.join(cwd, 'PE089_roman.txt'), 'r')
+L = fichier.readlines()
 fichier.close()
 
+# print(L)
+
+
+# liste=["13\n2","uio","poop","pppp"]
 
 def reduction(L):
-    L="IV".join(L.split("IIII"))
-    L="IX".join(L.split("VIV"))
-    L="XL".join(L.split("XXXX"))
-    L="XC".join(L.split("LXL"))
-    L="CD".join(L.split("CCCC"))
-    L="CM".join(L.split("DCD"))
+    L = "IV".join(L.split("IIII"))
+    L = "IX".join(L.split("VIV"))
+    L = "XL".join(L.split("XXXX"))
+    L = "XC".join(L.split("LXL"))
+    L = "CD".join(L.split("CCCC"))
+    L = "CM".join(L.split("DCD"))
     return L
-    
 
 
 def arabic_Roman(a):
-    L="".join('I'*a)
-    L="V".join(L.split("IIIII"))
-    L="X".join(L.split("VV"))
-    L="L".join(L.split("XXXXX"))
-    L="C".join(L.split("LL"))
-    L="D".join(L.split("CCCCC"))
-    L="M".join(L.split("DD"))
+    L = "".join('I' * a)
+    L = "V".join(L.split("IIIII"))
+    L = "X".join(L.split("VV"))
+    L = "L".join(L.split("XXXXX"))
+    L = "C".join(L.split("LL"))
+    L = "D".join(L.split("CCCCC"))
+    L = "M".join(L.split("DD"))
 
-    L=reduction(L)    
+    L = "IV".join(L.split("IIII"))
+    L = "IX".join(L.split("VIV"))
+    L = "XL".join(L.split("XXXX"))
+    L = "XC".join(L.split("LXL"))
+    L = "CD".join(L.split("CCCC"))
+    L = "CM".join(L.split("DCD"))
+
     return L
 
 
-s=0
+a = 11996
+# print(arabic_Roman(a))
+
+s = 0
 for m in L:
-    n=reduction(m)
-    #print(m)
-    #if len(m)!=len(n):
-        #print([m,n])
-    s+=len(m)-len(n)
+    n = reduction(m)
+    # print(m)
+    # if len(m)!=len(n):
+    # print([m,n])
+    s += len(m) - len(n)
 
 print(s)
-    

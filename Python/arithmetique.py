@@ -60,30 +60,16 @@ def previousPrime(n):
 memPF = {}
 memPF[1] = []
 def primeFactors(n):
-    global memPF
     """Décomposition en facteurs premiers"""
-    if n not in memPF.keys():
+    global memPF
+    if n not in memPF:
         i = 2
-        while i <= n and n%i != 0:
+        while n%i != 0 and i <= n:
             i = nextPrime(i)
 
         memPF[n] = [i] + primeFactors(n//i)
         
     return memPF[n]
-
-def nbDiv(n):
-    """retourne le nombre de diviseurs de n"""
-    l = primeFactors(n)
-    ens = set()
-    nb = 1
-    for v in l:
-        if v not in ens:
-            ens.add(v)
-            nb*=(1+l.count(v))
-    return nb
-    
-
-    
 
 def ppcm_L(liste):
     """PPCM d'une liste de nombres"""
@@ -159,6 +145,19 @@ def nPremiers(n):
         liste.append(a)
         nbre += 1
     return liste
+
+
+def nbDiv(n):
+    listFac = primeFactors(n)
+    D = {}
+    for v in listFac:
+        if v not in D:
+            D[v] = 0
+        D[v] += 1
+    p = 1
+    for v in D.values():
+        p *= (v+1)
+    return p
 
 
 

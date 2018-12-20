@@ -17,7 +17,6 @@ t0 = time()
 mem = {}
 mem[0] = 1
 
-
 def p(n):
     """génération des partitions d'un nombre grace à la récurrence
     sur les nombres pentagonaux d'Euler"""
@@ -25,15 +24,19 @@ def p(n):
         return mem[n]
     else:
         s = 0
-        k = 1
-        while (n-k*(3*k+1)//2) >= 0:
-            s += p(n-k*(3*k+1)//2)*(-1)**(k-1)
+        k = 1      
+        nb1 = (n-k*(3*k+1)//2)
+        while nb1 >= 0:
+            s += p(nb1)*(-1)**(k-1)
             k += 1
+            nb1 = (n-k*(3*k+1)//2)
             
         k = 1
-        while (n-k*(3*k-1)//2) >= 0:
-            s += p(n-k*(3*k-1)//2)*(-1)**(k-1)
+        nb2 = (n-k*(3*k-1)//2)
+        while nb2 >= 0:
+            s += p(nb2)*(-1)**(k-1)
             k += 1
+            nb2 = (n-k*(3*k-1)//2)
         
         mem[n] = s
         return s
@@ -43,7 +46,7 @@ i = 1
 while p(i)%10**6 != 0:
     i += 1
 
-print("-->",i,p(i))
+print("-->",i)#,p(i))
 print(time()-t0)
 
 

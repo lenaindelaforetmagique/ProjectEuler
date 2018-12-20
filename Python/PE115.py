@@ -16,7 +16,7 @@ def C_n_k(n, k):
 def F(m, Ltot):
     arr = 1
     # Boucle sur le nombre de segments rouges
-    for k in range(1, (Ltot+1)//4+1):
+    for k in range(1, (Ltot+1)//(m+1)+1):
         # Boucle sur la longueur rouge possible
         for lr in range(m*k, Ltot-(k-1)+1):
             #Arr = arrangements du rouge * arrangements du noir

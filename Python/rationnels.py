@@ -178,7 +178,13 @@ if __name__ == "__main__":
     print(v1)
     a = 2
     a += v1
-    print(a)    
+    print(a)
+
+    print("tests comparateurs")
+    a = 2
+    print(a, v1, a>=v1)
+    print(v1, v2, v1>=v2)
+    
 
 
 

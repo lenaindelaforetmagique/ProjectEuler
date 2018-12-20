@@ -12,7 +12,8 @@
 
 
 # > https://en.wikipedia.org/wiki/Farey_sequence
-
+from time import time
+t0 =time()
 _dico_={}
 _dico_[1]=2
 
@@ -31,7 +32,7 @@ def F_n(n):
 
 d = 1000000
 
-print(F_n(d)-2)
+print(F_n(d)-2,time()-t0)
 
 
 ##from arithmetique import *
